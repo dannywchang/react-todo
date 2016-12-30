@@ -53,9 +53,16 @@ var TodoApp = React.createClass ({
     var fileterTodos = TodoAPI.fileterTodos(todos, showCompleted, searchText);
     return (
       <div>
-        <TodoSearch onSearch={this.handleSearch}/>
-        <TodoList todos={fileterTodos} onToggle={this.handleToggle} />
-        <AddTodo onAddTodo={this.handleAddtoDo}/>
+        <h1 className="page-title">Todo App</h1>
+        <div className="row">
+          <div className="column small-centered small-li medium-6 large-5">
+            <div className="container">
+              <TodoSearch onSearch={this.handleSearch}/>
+              <TodoList todos={fileterTodos} onToggle={this.handleToggle} />
+              <AddTodo onAddTodo={this.handleAddtoDo}/>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
