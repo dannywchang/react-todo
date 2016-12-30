@@ -47,7 +47,7 @@ describe('TodoAPI',()=>{
   describe('getTodos',()=>{
     var todos =[{
       id:1,
-      text:'test',
+      text:'t1est',
       completed:true
     },{
       id:2,
@@ -67,6 +67,19 @@ describe('TodoAPI',()=>{
     it('should return non-completed items if showComplted is false',()=>{
       var fileterTodos = TodoAPI.fileterTodos(todos,false,'');
       expect(fileterTodos.length).toBe(1);
+    });
+    it('should sort by complete status',()=>{
+      var fileterTodos = TodoAPI.fileterTodos(todos,true,'');
+      expect(fileterTodos[0].completed).toBe(false);
+    });
+
+    it('should filter todos by searchText', () =>{
+      var fileterTodos = TodoAPI.fileterTodos(todos,true,'te');
+      expect(fileterTodos.length).toBe(2);
+    });
+    it('should return all todos if searchText is empty', () =>{
+      var fileterTodos = TodoAPI.fileterTodos(todos,true,'');
+      expect(fileterTodos.length).toBe(3);
     });
   });
 });
