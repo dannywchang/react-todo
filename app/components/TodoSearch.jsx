@@ -5,7 +5,7 @@ var TodoSearch = React.createClass ({
     var showCompleted = this.refs.showCompleted.checked;
     var searchText = this.refs.searchText.value;
 
-    this.props.onSerch(showCompleted, searchText);
+    this.props.onSearch(showCompleted, searchText);
   },
   render : function () {
     return (
@@ -15,7 +15,7 @@ var TodoSearch = React.createClass ({
         </div>
         <div>
           <label>
-            <input type="checkbox" ref="showCompleted" onChenge={this.handleSearch}/>
+            <input type="checkbox" ref="showCompleted" onChange={this.handleSearch}/>
             Show completed todos
           </label>
         </div>
