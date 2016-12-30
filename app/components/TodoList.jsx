@@ -9,7 +9,7 @@ var TodoList = React.createClass({
         return todos.map((todo)=>{
             return (
               //...傳入object中所有的proprs
-              <Todo key={todo.id} {...todo}/>
+              <Todo key={todo.id} {...todo} onToggle={this.props.onToggle}/>
             );
         });
       };
