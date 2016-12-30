@@ -26,7 +26,7 @@ var TodoApp = React.createClass ({
     this.setState({todos:updatedTodos});
   },
   componentDidUpdate: function () {
-    TodoAPI.setTodos(this.state.todos);    
+    TodoAPI.setTodos(this.state.todos);
   },
   handleAddtoDo: function(text){
       this.setState({
@@ -46,12 +46,12 @@ var TodoApp = React.createClass ({
     });
   },
   render: function() {
-    var {todos} = this.state;
-
+    var {todos, showCompleted, searchText} = this.state;
+    var fileterTodos = TodoAPI.fileterTodos(todos, showCompleted, searchText);
     return (
       <div>
         <TodoSearch onSearch={this.handleSearch}/>
-        <TodoList todos={todos} onToggle={this.handleToggle} />
+        <TodoList todos={fileterTodos} onToggle={this.handleToggle} />
         <AddTodo onAddTodo={this.handleAddtoDo}/>
       </div>
     );

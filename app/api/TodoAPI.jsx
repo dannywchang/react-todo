@@ -9,12 +9,25 @@ module.exports = {
   },
   getTodos:function() {
     var stringTodos = localStorage.getItem('todos');
-    var todos=[];    
+    var todos=[];
     try {
         todos= JSON.parse(stringTodos);
     } catch (e) {
 
     }
     return $.isArray(todos) ? todos : [];
+  },
+  fileterTodos:function(todos, showCompleted, searchText) {
+    var fileterTodos= todos;
+    // Fileter by showCompleted
+    fileterTodos = fileterTodos.filter((todo) =>{
+      return !todo.completed || showCompleted;
+    });
+    //Fileter By searchText
+    
+    //Sort todos with non-completed first
+
+    return fileterTodos;
   }
+
 };
